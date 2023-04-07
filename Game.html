@@ -1,0 +1,71 @@
+<!Doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="game">
+<meta name="keywords" content="HTML, CSS, JS">
+<meta name="author" content="EP">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+</head>
+<header>
+</header>
+<body>
+<!-- Have a block for graphics width by height
+and the gameCanvas is a label to use in JS to display 
+Graphics onto it.
+ -->
+<canvas id="gameCanvas" width="800" height="600">
+
+</canvas>
+</body>
+<script>
+//variable a handle on information of the dimension of its context
+var canvas;
+//
+var canvasContext;
+
+var ballX = 50;
+var ballSpeedX = 5;
+
+//when browser finish loading run this code.
+window.onload = function() {
+canvas = document.getElementById('gameCanvas');
+canvasContext = canvas.getContext('2d');
+var framesPerSecond = 30;
+setInterval(function() {
+    moveEverything();
+    drawEverything();
+ }, 1000/framesPerSecond);
+ }
+//calling a function multiple times
+function moveEverything() {
+ballX = ballX + ballSpeedX;
+}
+/////////////////////////////////////////////
+function drawEverything() {
+canvasContext.fillStyle = 'black';
+canvasContext.fillRect(0,0,canvas.width,canvas.height);
+canvasContext.fillStyle = 'red';
+canvasContext.fillRect(10,300,20, 100);
+canvasContext.fillStyle = 'white';
+//anything after x,y coord is w,h
+canvasContext.fillRect(400,300,20,20);
+//canvas.width,canvas.height);
+canvasContext.fillStyle = 'green';
+canvasContext.fillRect(770,300,20,100);
+}
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
